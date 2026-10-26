@@ -47,7 +47,9 @@
     .topline strong { color: var(--lime); font-weight: 650; }
 
     .site-header { position: sticky; top: 0; z-index: 5; background: rgb(247 247 243 / 94%); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
-    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav > .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .nav > .hero-actions .button { padding-inline: 12px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-width: max-content; }
     .brand-mark { width: 46px; height: 46px; flex: 0 0 46px; display: block; border-radius: 12px; background: white; object-fit: contain; padding: 3px; }
     .brand-copy { display: grid; line-height: 1.2; }
@@ -158,6 +160,7 @@
 
     @media (max-width: 860px) {
       .nav { flex-wrap: wrap; padding-block: 12px; }
+      .nav > .hero-actions { width: 100%; justify-content: flex-start !important; }
       .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 7px; border-top: 1px solid var(--line); }
       .hero-grid { grid-template-columns: 1fr; gap: 34px; }
       .hero-aside { max-width: 620px; }
@@ -215,7 +218,10 @@
         <a href="#workflow">Workflow</a>
         <a href="#team">Team</a>
       </nav>
-      <a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open testing app <span aria-hidden="true">↗</span></a>
+      <div class="hero-actions" style="margin-top:0; justify-content:flex-end;">
+        <a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Surface testing <span aria-hidden="true">↗</span></a>
+        <a class="button" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </header>
 
@@ -228,7 +234,8 @@
           <p class="hero-title"><strong>IIoT and Image Processing-Based Surface Defect Detection and Automatic Product Rejection System</strong></p>
           <p class="hero-copy">A student-built prototype exploring how computer vision can help identify visible defects on steel surfaces and support more consistent inspection.</p>
           <div class="hero-actions">
-            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Try the prototype <span aria-hidden="true">↗</span></a>
+            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
             <a class="button button-light" href="#project">Explore the project <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -359,8 +366,10 @@
             </div>
           </div>
           <div class="cta-actions">
-            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open testing app <span aria-hidden="true">↗</span></a>
+            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
           </div>
+          <p class="flow-caption" style="margin-top:16px;color:#c8d5ca;">The Windows height tester is a downloadable local launcher. Download it, set up the HeightInspection app on your PC, then run the .bat file manually. Browsers cannot launch local programs automatically.</p>
         </div>
       </div>
     </section>
