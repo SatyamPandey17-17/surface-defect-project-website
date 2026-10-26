@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An academic project exploring AI-assisted steel surface inspection at CCET Chandigarh.">
+  <meta name="theme-color" content="#f7f7f3">
+  <title>Surface Inspection Lab — CCET Chandigarh</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #182923;
+      --muted: #64716a;
+      --paper: #f7f7f3;
+      --white: #fff;
+      --green: #214b3b;
+      --green-dark: #17372c;
+      --lime: #d8eb8a;
+      --line: #e2e6dc;
+      --soft: #edf1e8;
+      --accent: #bd633d;
+      --radius: 18px;
+      --page: 1120px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .skip-link {
+      position: absolute; z-index: 10; top: -60px; left: 16px;
+      padding: 10px 14px; border-radius: 8px; background: white; color: var(--ink); font-weight: 700;
+    }
+    .skip-link:focus { top: 12px; }
+    .shell { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
+
+    .topline { background: var(--green-dark); color: #e8eee7; font-size: 12px; letter-spacing: .035em; }
+    .topline-inner { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topline p { margin: 0; }
+    .topline strong { color: var(--lime); font-weight: 650; }
+
+    .site-header { position: sticky; top: 0; z-index: 5; background: rgb(247 247 243 / 94%); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav > .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .nav > .hero-actions .button { padding-inline: 12px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; min-width: max-content; }
+    .brand-mark { width: 46px; height: 46px; flex: 0 0 46px; display: block; border-radius: 12px; background: white; object-fit: contain; padding: 3px; }
+    .brand-copy { display: grid; line-height: 1.2; }
+    .brand-copy strong { color: var(--green-dark); font-size: 14px; }
+    .brand-copy span { margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(14px, 2.2vw, 28px); }
+    .nav-links a { color: #46544b; text-decoration: none; font-size: 13px; font-weight: 650; transition: color .18s ease; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .button { display: inline-flex; min-height: 45px; align-items: center; justify-content: center; gap: 9px; padding: 10px 17px; border: 1px solid var(--green); border-radius: 9px; background: var(--green); color: white; text-decoration: none; font-size: 13px; font-weight: 750; transition: transform .18s ease, background .18s ease, box-shadow .18s ease; }
+    .button:hover { transform: translateY(-2px); background: var(--green-dark); box-shadow: 0 8px 18px #17372c20; }
+    .button-light { border-color: #789080; background: transparent; color: white; }
+    .button-light:hover { background: #ffffff14; }
+    .button-lime { border-color: var(--lime); background: var(--lime); color: var(--green-dark); }
+    .button-lime:hover { border-color: #e4f3ad; background: #e4f3ad; }
+
+    .hero { position: relative; overflow: hidden; padding: 76px 0 82px; background: var(--green-dark); color: white; }
+    .hero::after { position: absolute; top: -210px; right: -110px; width: 600px; height: 600px; border: 1px solid #d8eb8a25; border-radius: 50%; box-shadow: 0 0 0 45px #d8eb8a0a, 0 0 0 100px #d8eb8a08; content: ""; pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, .75fr); align-items: center; gap: clamp(35px, 7vw, 90px); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .eyebrow::before { width: 19px; height: 2px; background: currentColor; content: ""; }
+    .hero .eyebrow { color: var(--lime); }
+    .hero h1 { max-width: 700px; margin: 19px 0 20px; font-size: clamp(42px, 6.3vw, 76px); font-weight: 650; letter-spacing: -.065em; line-height: .99; }
+    .hero h1 em { color: var(--lime); font-style: normal; }
+    .hero-title { max-width: 650px; margin: 0; color: #e2e9e3; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.65; }
+    .hero-copy { max-width: 600px; margin: 13px 0 0; color: #b9c9be; font-size: 14px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 27px; }
+    .hero-aside { padding: 25px; border: 1px solid #ffffff25; border-radius: var(--radius); background: #ffffff0a; box-shadow: 0 18px 55px #07180f35; }
+    .aside-label { margin: 0 0 18px; color: var(--lime); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .stat { padding: 15px 0; border-top: 1px solid #ffffff20; }
+    .stat:first-of-type { border-top: 0; padding-top: 0; }
+    .stat strong { display: block; font-size: 15px; }
+    .stat span { display: block; margin-top: 3px; color: #b9c9be; font-size: 12px; line-height: 1.5; }
+    .status { display: inline-flex; align-items: center; gap: 7px; margin-top: 17px; padding: 6px 10px; border-radius: 99px; background: #d8eb8a18; color: #e4f3ad; font-size: 11px; font-weight: 700; }
+    .status::before { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); content: ""; }
+
+    .section { padding-block: 78px; }
+    .section-soft { background: var(--soft); }
+    .section-heading { max-width: 700px; margin-bottom: 32px; }
+    .section-heading h2 { margin: 11px 0 12px; color: var(--green-dark); font-size: clamp(30px, 4vw, 46px); font-weight: 650; letter-spacing: -.045em; line-height: 1.1; }
+    .section-heading p { max-width: 660px; margin: 0; color: var(--muted); font-size: 15px; }
+    .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+    .card { min-height: 205px; padding: 23px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px #1d34220d; }
+    .card-number { display: inline-grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: var(--soft); color: var(--green); font-size: 12px; font-weight: 850; }
+    .card h3 { margin: 18px 0 7px; color: var(--green-dark); font-size: 17px; letter-spacing: -.02em; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .tech-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(30px, 6vw, 75px); align-items: start; }
+    .tech-layout .section-heading { position: sticky; top: 116px; margin-bottom: 0; }
+    .tech-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .tech-item { padding: 19px; border: 1px solid #dce3d8; border-radius: 14px; background: #f8faf5; }
+    .tech-item .mini-label { color: var(--accent); font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .tech-item h3 { margin: 7px 0 5px; color: var(--green-dark); font-size: 16px; }
+    .tech-item p { margin: 0; color: var(--muted); font-size: 12px; }
+    .validation { margin-top: 16px; padding: 17px 19px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: #fff9f4; color: #604535; font-size: 12px; }
+    .validation strong { display: block; margin-bottom: 3px; color: #4f3629; }
+
+    .workflow { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 7vw, 88px); align-items: start; }
+    .steps { display: grid; gap: 0; }
+    .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 0 0 23px; }
+    .step:not(:last-child) .step-marker::after { position: absolute; top: 35px; bottom: -26px; left: 50%; width: 1px; background: var(--line); content: ""; }
+    .step-marker { position: relative; z-index: 1; display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #d6e0d3; border-radius: 50%; background: white; color: var(--green); font-size: 12px; font-weight: 850; }
+    .step h3 { margin: 3px 0 4px; color: var(--green-dark); font-size: 15px; }
+    .step p { margin: 0; color: var(--muted); font-size: 13px; }
+    .flow-panel { padding: 25px; border: 1px solid var(--line); border-radius: var(--radius); background: white; }
+    .flow-panel h3 { margin: 0 0 17px; color: var(--green-dark); font-size: 16px; }
+    .flow-row { display: flex; align-items: center; gap: 8px; margin-top: 9px; }
+    .flow-node { flex: 1; display: grid; min-height: 62px; place-items: center; padding: 9px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcf9; color: var(--green-dark); text-align: center; font-size: 11px; font-weight: 750; line-height: 1.4; }
+    .flow-arrow { color: var(--accent); font-weight: 800; }
+    .flow-caption { margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+
+    .details { display: grid; grid-template-columns: .7fr 1.3fr; gap: 45px; align-items: start; }
+    .details .section-heading { margin-bottom: 0; }
+    .detail-table { width: 100%; border-collapse: collapse; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    .detail-table th, .detail-table td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 12px; }
+    .detail-table tr:last-child th, .detail-table tr:last-child td { border-bottom: 0; }
+    .detail-table th { width: 36%; color: var(--green-dark); font-weight: 750; }
+    .detail-table td { color: var(--muted); }
+
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .team-card { padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: white; }
+    .team-card span { color: var(--accent); font-size: 10px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .team-card h3 { margin: 9px 0 4px; color: var(--green-dark); font-size: 15px; }
+    .team-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .placeholder-note { margin: 15px 0 0; color: var(--muted); font-size: 12px; }
+
+    .cta { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: clamp(25px, 5vw, 43px); border-radius: 20px; background: var(--green); color: white; }
+    .cta .eyebrow { color: var(--lime); }
+    .cta h2 { margin: 10px 0 6px; font-size: clamp(25px, 3vw, 34px); font-weight: 650; letter-spacing: -.04em; line-height: 1.15; }
+    .cta p { margin: 0; color: #c8d5ca; font-size: 13px; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .local-test { margin-top: 18px; padding-top: 16px; border-top: 1px solid #ffffff30; }
+    .local-test p { margin-bottom: 10px; }
+    .local-preview { display: none; max-width: 220px; margin-top: 14px; }
+    .local-preview img { display: block; max-width: 100%; max-height: 170px; border: 1px solid #ffffff40; border-radius: 10px; }
+    .local-preview span { display: block; margin-top: 6px; color: #c8d5ca; font-size: 12px; overflow-wrap: anywhere; }
+    .institution { padding-top: 12px; }
+    .institution-inner { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding-top: 29px; border-top: 1px solid var(--line); }
+    .institution h2 { margin: 7px 0 5px; color: var(--green-dark); font-size: 20px; letter-spacing: -.025em; }
+    .institution p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .site-footer { padding: 25px 0; background: var(--green-dark); color: #d4dfd6; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-inner p { margin: 0; font-size: 11px; }
+    .footer-inner a { color: var(--lime); font-size: 11px; font-weight: 700; text-decoration: none; }
+    .footer-inner a:hover { text-decoration: underline; }
+
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; padding-block: 12px; }
+      .nav > .hero-actions { width: 100%; justify-content: flex-start !important; }
+      .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 7px; border-top: 1px solid var(--line); }
+      .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+      .hero-aside { max-width: 620px; }
+      .tech-layout, .workflow, .details { grid-template-columns: 1fr; }
+      .tech-layout .section-heading { position: static; }
+      .details { gap: 25px; }
+    }
+    @media (max-width: 600px) {
+      .shell { width: min(var(--page), calc(100% - 36px)); }
+      .topline-inner { min-height: 32px; font-size: 10px; }
+      .topline p:last-child { display: none; }
+      .nav { min-height: 70px; gap: 10px; }
+      .brand-mark { width: 37px; height: 37px; flex-basis: 37px; }
+      .brand-copy strong { font-size: 12px; }
+      .brand-copy span { font-size: 10px; }
+      .nav > .button { min-height: 39px; padding: 8px 10px; font-size: 11px; }
+      .nav-links { justify-content: flex-start; gap: 22px; overflow-x: auto; }
+      .nav-links a { flex: 0 0 auto; font-size: 12px; }
+      .hero { padding: 55px 0 58px; }
+      .hero h1 { font-size: clamp(42px, 12vw, 61px); }
+      .hero::after { right: -380px; }
+      .hero-aside { padding: 20px; }
+      .section { padding-block: 57px; }
+      .cards, .tech-list, .team-grid { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .flow-row { gap: 5px; }
+      .flow-node { min-height: 58px; padding: 6px; font-size: 10px; }
+      .flow-arrow { font-size: 12px; }
+      .detail-table th, .detail-table td { padding: 11px 10px; font-size: 11px; }
+      .cta, .institution-inner { align-items: flex-start; flex-direction: column; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="shell topline-inner">
+      <p><strong>Student project</strong> &nbsp; </p>
+      <p>Chandigarh, India</p>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#home" aria-label="Surface Inspection Lab home">
+        <img class="brand-mark" src="https://uploads.onecompiler.io/4577tjuh3/1793024396137/images.jpg" alt="CCET logo">
+        <span class="brand-copy"><strong></strong><span>Degree Wing · Project showcase</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#project">Project</a>
+        <a href="#technology">Technology</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#team">Team</a>
+      </nav>
+      <div class="hero-actions" style="margin-top:0; justify-content:flex-end;">
+        <a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Surface testing <span aria-hidden="true">↗</span></a>
+        <a class="button" href="Start_Height_Inspection.bat" download>Height tester (Windows) <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <span class="eyebrow">Final-year engineering project</span>
+          <h1 id="hero-title">A closer look at <em>every surface.</em></h1>
+          <p class="hero-title"><strong>IIoT and Image Processing-Based Surface Defect Detection and Automatic Product Rejection System</strong></p>
+          <p class="hero-copy">A student-built prototype exploring how computer vision can help identify visible defects on steel surfaces and support more consistent inspection.</p>
+          <div class="hero-actions">
+            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="Start_Height_Inspection.bat" download>Download height tester (Windows) <span aria-hidden="true">↓</span></a>
+            <a class="button button-light" href="#project">Explore the project <span aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="Project at a glance">
+          <p class="aside-label">Project at a glance</p>
+          <div class="stat"><strong>Two complementary models</strong><span>YOLO detection and PatchCore anomaly detection</span></div>
+          <div class="stat"><strong>Six surface defect classes</strong><span>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</span></div>
+          <div class="stat"><strong>Flexible image input</strong><span>Phone camera capture or batch upload of up to six images</span></div>
+          <div class="status">Software prototype</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="project" aria-labelledby="project-title">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="eyebrow">01 · The project</span>
+          <h2 id="project-title">A practical question, explored with vision.</h2>
+          <p>Steel surface inspection is a natural fit for machine vision. This project demonstrates an image-based approach and gives users a place to review model-assisted results.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><span class="card-number">01</span><h3>Inspect the image</h3><p>Analyse a surface photo and highlight regions that may need a closer look.</p></article>
+          <article class="card"><span class="card-number">02</span><h3>Combine two approaches</h3><p>Use learned defect detection alongside anomaly analysis to examine both known and unusual patterns.</p></article>
+          <article class="card"><span class="card-number">03</span><h3>Explore industrial potential</h3><p>Show how machine vision and IIoT concepts could contribute to repeatable manufacturing checks.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="technology" aria-labelledby="technology-title">
+      <div class="shell tech-layout">
+        <div class="section-heading">
+          <span class="eyebrow">02 · Under the hood</span>
+          <h2 id="technology-title">Tools for seeing more.</h2>
+          <p>The current software prototype runs as a web application. Models process captured or uploaded images on the server.</p>
+        </div>
+        <div>
+          <div class="tech-list">
+            <article class="tech-item"><span class="mini-label">Detection</span><h3>YOLO</h3><p>Localizes learned defect categories with bounding boxes and confidence scores.</p></article>
+            <article class="tech-item"><span class="mini-label">Anomaly analysis</span><h3>PatchCore</h3><p>Highlights visual patterns that appear unusual to the model, including through anomaly maps.</p></article>
+            <article class="tech-item"><span class="mini-label">Image input</span><h3>Camera &amp; uploads</h3><p>Capture an image on a supported phone browser or select up to six image files.</p></article>
+            <article class="tech-item"><span class="mini-label">Application</span><h3>Results dashboard</h3><p>Review detections, confidence values, heatmaps and a batch summary in the testing app.</p></article>
+            <article class="tech-item"><span class="mini-label">Connected systems</span><h3>IIoT direction</h3><p>A starting point for future device monitoring, result logging and system integration.</p></article>
+            <article class="tech-item"><span class="mini-label">Future work</span><h3>Rejection mechanism</h3><p>Controller and actuator integration can follow once detection timing and decision logic are validated.</p></article>
+          </div>
+          <aside class="validation"><strong>A note on validation</strong>A PASS result does not prove a product is defect-free. Thresholds need calibration against labelled validation images, and any physical rejection system requires separate testing and safety controls.</aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="workflow" aria-labelledby="workflow-title">
+      <div class="shell workflow">
+        <div>
+          <div class="section-heading">
+            <span class="eyebrow">03 · The process</span>
+            <h2 id="workflow-title">From surface to review.</h2>
+            <p>A straightforward workflow for demonstrating the current image-inspection prototype.</p>
+          </div>
+          <div class="steps">
+            <article class="step"><span class="step-marker">1</span><div><h3>Acquire an image</h3><p>Capture a photo on a supported phone browser or upload up to six images.</p></div></article>
+            <article class="step"><span class="step-marker">2</span><div><h3>Run model inference</h3><p>YOLO searches for known classes while PatchCore evaluates unusual visual patterns.</p></div></article>
+            <article class="step"><span class="step-marker">3</span><div><h3>Review the outputs</h3><p>Examine bounding boxes, confidence scores, anomaly heatmaps and the batch summary.</p></div></article>
+            <article class="step"><span class="step-marker">4</span><div><h3>Validate the decision</h3><p>Compare predictions with labelled ground truth and calibrate thresholds before acting on results.</p></div></article>
+          </div>
+        </div>
+        <div class="flow-panel">
+          <h3>System concept</h3>
+          <div class="flow-row"><span class="flow-node">Product<br>surface</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Camera or<br>image</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">AI<br>models</span></div>
+          <div class="flow-row"><span class="flow-node">Detection and<br>anomaly results</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Decision<br>logic</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Review or future<br>rejection</span></div>
+          <p class="flow-caption">The current app demonstrates image-based inspection. Physical automatic rejection should be described as planned integration unless it has been built and tested.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-labelledby="details-title">
+      <div class="shell details">
+        <div class="section-heading">
+          <span class="eyebrow">04 · At a glance</span>
+          <h2 id="details-title">Project details.</h2>
+          <p>A concise summary of the project scope and academic context.</p>
+        </div>
+        <table class="detail-table">
+          <tbody>
+            <tr><th scope="row">Project title</th><td>IIoT and Image Processing-Based Surface Defect Detection and Automatic Product Rejection System</td></tr>
+            <tr><th scope="row">Application area</th><td>Steel surface inspection and manufacturing quality control</td></tr>
+            <tr><th scope="row">Models</th><td>YOLO for known defect classes; PatchCore for anomaly detection</td></tr>
+            <tr><th scope="row">Defect classes</th><td>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</td></tr>
+            <tr><th scope="row">Image input</th><td>Phone camera capture and batch upload (up to six images)</td></tr>
+            <tr><th scope="row">Web application</th><td>Streamlit testing application</td></tr>
+            <tr><th scope="row">Hardware direction</th><td>Future controller and connected-device integration for a physical inspection and rejection workflow</td></tr>
+            <tr><th scope="row">Institution</th><td>Chandigarh College of Engineering and Technology (CCET), Degree Wing, Sector 26, Chandigarh</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="team" aria-labelledby="team-title">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="eyebrow">05 · People &amp; academics</span>
+          <h2 id="team-title">The people behind the project.</h2>
+          <p>Project and academic details can be added here when the approved information is ready.</p>
+        </div>
+        <div class="team-grid">
+          <article class="team-card"><span>Project team</span><h3>Umesh Sharma [LCO23177] </h3><h3>Satyam Pandey [MCO23162] </h3><h3>Divyansh Dhir [LCO23167] </h3></article>
+          <article class="team-card"><span>Supervision</span><h3>Dr. Mukesh kumar </h3></article>
+          <article class="team-card"><span>Academic context</span><h3>Minor Project </h3><p>Mechanical - 7th sem </p></article>
+        </div>
+        <p class="placeholder-note">Remember to replace the bracketed placeholders before publishing.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Try the prototype">
+      <div class="shell">
+        <div class="cta">
+          <div>
+            <span class="eyebrow">06 · See it in action</span>
+            <h2>Take a closer look at the prototype.</h2>
+            <p>Open the separate testing application to capture a photo or review a batch of images.</p>
+            <div class="local-test">
+              <p>Have a test image saved on your laptop? Select it to preview it here.</p>
+              <button class="button button-light" id="choose-image" type="button">Choose image from laptop</button>
+              <input id="local-image" type="file" accept="image/*" hidden>
+              <div class="local-preview" id="local-preview" aria-live="polite">
+                <img id="preview-image" alt="Preview of the selected local image">
+                <span id="selected-filename"></span>
+              </div>
+              <p>This local preview does not upload the image or run model analysis. Use the testing app to submit an image for inspection.</p>
+            </div>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
+            <a class="button button-light" href="Start_Height_Inspection.bat" download>Download height tester (Windows) <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="flow-caption" style="margin-top:16px;color:#c8d5ca;">The Windows height tester is a downloadable local launcher. Download it, set up the HeightInspection app on your PC, then run the .bat file manually. Browsers cannot launch local programs automatically.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section institution" id="institution" aria-labelledby="institution-title">
+      <div class="shell institution-inner">
+        <div><span class="eyebrow">07 · Institution</span><h2 id="institution-title">Chandigarh College of Engineering and Technology</h2><p>Government institute under Chandigarh UT Administration, affiliated to Panjab University, Chandigarh.</p></div>
+        <a class="button" href="https://www.ccet.ac.in/" target="_blank" rel="noopener noreferrer">Visit CCET website <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p><strong>Surface Inspection Lab</strong> · Academic project showcase, CCET Degree Wing</p>
+      <p>© 2026 Satyam Pandey. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const imageInput = document.getElementById('local-image');
+    const chooseImageButton = document.getElementById('choose-image');
+    const preview = document.getElementById('local-preview');
+    const previewImage = document.getElementById('preview-image');
+    const selectedFilename = document.getElementById('selected-filename');
+    let previewUrl;
+
+    chooseImageButton.addEventListener('click', () => imageInput.click());
+    imageInput.addEventListener('change', () => {
+      const file = imageInput.files[0];
+      if (!file || !file.type.startsWith('image/')) return;
+
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = URL.createObjectURL(file);
+      previewImage.src = previewUrl;
+      selectedFilename.textContent = file.name;
+      preview.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
