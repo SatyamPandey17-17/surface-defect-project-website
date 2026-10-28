@@ -108,7 +108,7 @@
     .validation { margin-top: 16px; padding: 17px 19px; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: #fff9f4; color: #604535; font-size: 12px; }
     .validation strong { display: block; margin-bottom: 3px; color: #4f3629; }
 
-    .workflow { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 7vw, 88px); align-items: start; }
+    .workflow { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 7vw, 88px); align-items: center; }
     .steps { display: grid; gap: 0; }
     .step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 0 0 23px; }
     .step:not(:last-child) .step-marker::after { position: absolute; top: 35px; bottom: -26px; left: 50%; width: 1px; background: var(--line); content: ""; }
@@ -158,6 +158,14 @@
     .footer-inner a { color: var(--lime); font-size: 11px; font-weight: 700; text-decoration: none; }
     .footer-inner a:hover { text-decoration: underline; }
 
+
+    .card .button { min-height: 38px; padding: 8px 12px; font-size: 11px; }
+    .flow-panel .steps { margin-top: 12px; }
+    .flow-panel .step { padding-bottom: 15px; }
+    .flow-panel .step-marker { width: 32px; height: 32px; }
+    .flow-panel .step:not(:last-child) .step-marker::after { top: 30px; bottom: -18px; }
+    .card p + p { margin-top: 8px; }
+
     @media (max-width: 860px) {
       .nav { flex-wrap: wrap; padding-block: 12px; }
       .nav > .hero-actions { width: 100%; justify-content: flex-start !important; }
@@ -199,197 +207,106 @@
   </style>
 </head>
 <body>
-  <div class="topline">
-    <div class="shell topline-inner">
-      <p><strong>Student project</strong> &nbsp; </p>
-      <p>Chandigarh, India</p>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="shell nav">
-      <a class="brand" href="#home" aria-label="Surface Inspection Lab home">
-        <img class="brand-mark" src="https://uploads.onecompiler.io/4577tjuh3/1793024396137/images.jpg" alt="CCET logo">
-        <span class="brand-copy"><strong></strong><span>Degree Wing · Project showcase</span></span>
-      </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#project">Project</a>
-        <a href="#technology">Technology</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#team">Team</a>
-      </nav>
-      <div class="hero-actions" style="margin-top:0; justify-content:flex-end;">
-        <a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Surface testing <span aria-hidden="true">↗</span></a>
-        <a class="button" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </header>
-
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="topline"><div class="shell topline-inner"><p><strong>Student Project</strong> &nbsp;</p><p>Chandigarh, India</p></div></div>
+  <header class="site-header"><div class="shell nav">
+    <a class="brand" href="#home" aria-label="Surface Inspection Lab home"><img class="brand-mark" src="https://uploads.onecompiler.io/4577tjuh3/1793024396137/images.jpg" alt="CCET logo"><span class="brand-copy"><strong>Minor Project Web Page </strong><span>CCET Degree Wing · Project showcase</span></span></a>
+    <nav class="nav-links" aria-label="Main navigation"><a href="#project">Project</a><a href="#technology">AI models</a><a href="#hardware">Hardware</a><a href="#workflow">Workflow</a><a href="#results">Results</a><a href="#resources">Resources</a><a href="#team">Team</a></nav>
+    <div class="hero-actions" style="margin-top:0;justify-content:flex-end"><a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Surface testing ↗</a><a class="button" href="height-testing.html">Height tester ↗</a></div>
+  </div></header>
   <main id="main">
-    <section class="hero" id="home" aria-labelledby="hero-title">
-      <div class="shell hero-grid">
-        <div>
-          <span class="eyebrow">Final-year engineering project</span>
-          <h1 id="hero-title">A closer look at <em>every surface.</em></h1>
-          <p class="hero-title"><strong>IIoT and Image Processing-Based Surface Defect Detection and Automatic Product Rejection System</strong></p>
-          <p class="hero-copy">A student-built prototype exploring how computer vision can help identify visible defects on steel surfaces and support more consistent inspection.</p>
-          <div class="hero-actions">
-            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
-            <a class="button button-light" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
-            <a class="button button-light" href="#project">Explore the project <span aria-hidden="true">↓</span></a>
-          </div>
-        </div>
-        <aside class="hero-aside" aria-label="Project at a glance">
-          <p class="aside-label">Project at a glance</p>
-          <div class="stat"><strong>Two complementary models</strong><span>YOLO detection and PatchCore anomaly detection</span></div>
-          <div class="stat"><strong>Six surface defect classes</strong><span>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</span></div>
-          <div class="stat"><strong>Flexible image input</strong><span>Phone camera capture or batch upload of up to six images</span></div>
-          <div class="status">Software prototype</div>
-        </aside>
-      </div>
-    </section>
+    <section class="hero" id="home" aria-labelledby="hero-title"><div class="shell hero-grid"><div>
+      <span class="eyebrow">Final-year · Minor project</span>
+      <h1 id="hero-title">A closer look at <em>Every Finished Good.</em></h1>
+      <p class="hero-title"><strong>IIoT and Image Processing-Based Surface Defect Detection System</strong></p>
+      <p class="hero-copy">A Prototype exploring Image processing -based steel surface inspection, ultrasonic height measurement and the pathway toward connected manufacturing quality control.</p>
+      <div class="hero-actions"><a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Launch AI inspection ↗</a><a class="button button-light" href="#project">Explore the project ↓</a><a class="button button-light" href="#resources">Project resources ↓</a></div>
+    </div><aside class="hero-aside" aria-label="Project at a glance"><p class="aside-label">Project at a glance</p>
+      <div class="stat"><strong>Two model approaches</strong><span>YOLO object detection + PatchCore anomaly detection</span></div>
+      <div class="stat"><strong>Six target defect classes</strong><span>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</span></div>
+      <div class="stat"><strong>Sensor-based measurement</strong><span>Arduino Uno + HC-SR04 ultrasonic distance sensor</span></div>
+      <div class="stat"><strong>Demonstration interface</strong><span>Streamlit web app for image testing and result review</span></div>
+    </aside></div></section>
 
-    <section class="section" id="project" aria-labelledby="project-title">
-      <div class="shell">
-        <div class="section-heading">
-          <span class="eyebrow">01 · The project</span>
-          <h2 id="project-title">A practical question, explored with vision.</h2>
-          <p>Steel surface inspection is a natural fit for machine vision. This project demonstrates an image-based approach and gives users a place to review model-assisted results.</p>
-        </div>
-        <div class="cards">
-          <article class="card"><span class="card-number">01</span><h3>Inspect the image</h3><p>Analyse a surface photo and highlight regions that may need a closer look.</p></article>
-          <article class="card"><span class="card-number">02</span><h3>Combine two approaches</h3><p>Use learned defect detection alongside anomaly analysis to examine both known and unusual patterns.</p></article>
-          <article class="card"><span class="card-number">03</span><h3>Explore industrial potential</h3><p>Show how machine vision and IIoT concepts could contribute to repeatable manufacturing checks.</p></article>
-        </div>
+    <section class="section" id="project" aria-labelledby="project-title"><div class="shell"><div class="section-heading"><span class="eyebrow">01 · Project overview</span><h2 id="project-title">From manual checking to intelligent inspection.</h2><p>Surface defects can affect product quality, reliability and downstream manufacturing. This project explores how computer vision and sensor-based measurement can support a more repeatable inspection workflow.</p></div>
+      <div class="cards">
+        <article class="card"><span class="card-number">01</span><h3>Problem Statement</h3><p>Visual inspection may depend on operator attention, lighting and experience. Small or unfamiliar surface defects can be difficult to identify consistently. An image-based assistant can help flag areas for review.</p></article>
+        <article class="card"><span class="card-number">02</span><h3>Project Aim</h3><p>Develop a prototype that analyses steel surface images, measures object height with an ultrasonic sensor, and demonstrates how inspection results could support product classification.</p></article>
+        <article class="card"><span class="card-number">03</span><h3>Key Objectives</h3><p>Detect known defects, highlight unusual patterns, provide an accessible testing interface, measure object height, and design a path toward controller-based rejection and IIoT monitoring.</p></article>
       </div>
-    </section>
+     
+    </div></section>
 
-    <section class="section section-soft" id="technology" aria-labelledby="technology-title">
-      <div class="shell tech-layout">
-        <div class="section-heading">
-          <span class="eyebrow">02 · Under the hood</span>
-          <h2 id="technology-title">Tools for seeing more.</h2>
-          <p>The current software prototype runs as a web application. Models process captured or uploaded images on the server.</p>
-        </div>
-        <div>
-          <div class="tech-list">
-            <article class="tech-item"><span class="mini-label">Detection</span><h3>YOLO</h3><p>Localizes learned defect categories with bounding boxes and confidence scores.</p></article>
-            <article class="tech-item"><span class="mini-label">Anomaly analysis</span><h3>PatchCore</h3><p>Highlights visual patterns that appear unusual to the model, including through anomaly maps.</p></article>
-            <article class="tech-item"><span class="mini-label">Image input</span><h3>Camera &amp; uploads</h3><p>Capture an image on a supported phone browser or select up to six image files.</p></article>
-            <article class="tech-item"><span class="mini-label">Application</span><h3>Results dashboard</h3><p>Review detections, confidence values, heatmaps and a batch summary in the testing app.</p></article>
-            <article class="tech-item"><span class="mini-label">Connected systems</span><h3>IIoT direction</h3><p>A starting point for future device monitoring, result logging and system integration.</p></article>
-            <article class="tech-item"><span class="mini-label">Future work</span><h3>Rejection mechanism</h3><p>Controller and actuator integration can follow once detection timing and decision logic are validated.</p></article>
-          </div>
-          <aside class="validation"><strong>A note on validation</strong>A PASS result does not prove a product is defect-free. Thresholds need calibration against labelled validation images, and any physical rejection system requires separate testing and safety controls.</aside>
-        </div>
+    <section class="section section-soft" id="technology" aria-labelledby="technology-title"><div class="shell tech-layout"><div class="section-heading"><span class="eyebrow">02 · Software</span><h2 id="technology-title">Two Models, Complementary Roles.</h2><p>The web application processes an image submitted by the user. YOLO and PatchCore provide different types of evidence and should be interpreted separately.</p></div><div>
+      <div class="tech-list">
+        <article class="tech-item"><span class="mini-label">Object detection</span><h3>YOLO</h3><p>Predicts learned defect categories and localizes detections with bounding boxes and confidence scores. Performance depends on image quality, representative training data and the similarity of test images to the training domain.</p></article>
+        <article class="tech-item"><span class="mini-label">Anomaly detection</span><h3>PatchCore</h3><p>Learns normal visual patterns and highlights regions that look anomalous. An anomaly score is not a defect probability; its threshold must be calibrated using representative validation samples.</p></article>
+        <article class="tech-item"><span class="mini-label">Target categories</span><h3>Six surface defects</h3><p>Crazing · Inclusion · Patches · Pitted surface · Rolled-in scale · Scratches. These are the six classes configured for the YOLO model.</p></article>
+        <article class="tech-item"><span class="mini-label">Image interface</span><h3>Camera and batch upload</h3><p>The intended interface supports phone-camera capture in compatible browsers and batch uploads of up to six images, depending on the currently deployed app version.</p></article>
+        <article class="tech-item"><span class="mini-label">Hosting stack</span><h3>Python + Streamlit</h3><p>Python-based inference and a Streamlit interface provide the demonstration workflow. OpenCV and the relevant model libraries support image processing and inference.</p></article>
+        <article class="tech-item"><span class="mini-label">Future connection</span><h3>IIoT integration</h3><p>Potential next steps include transmitting inspection decisions to a controller, logging results, monitoring device status and connecting the inspection station to a production dashboard.</p></article>
       </div>
-    </section>
+      
+    </div></div></section>
 
-    <section class="section" id="workflow" aria-labelledby="workflow-title">
-      <div class="shell workflow">
-        <div>
-          <div class="section-heading">
-            <span class="eyebrow">03 · The process</span>
-            <h2 id="workflow-title">From surface to review.</h2>
-            <p>A straightforward workflow for demonstrating the current image-inspection prototype.</p>
-          </div>
-          <div class="steps">
-            <article class="step"><span class="step-marker">1</span><div><h3>Acquire an image</h3><p>Capture a photo on a supported phone browser or upload up to six images.</p></div></article>
-            <article class="step"><span class="step-marker">2</span><div><h3>Run model inference</h3><p>YOLO searches for known classes while PatchCore evaluates unusual visual patterns.</p></div></article>
-            <article class="step"><span class="step-marker">3</span><div><h3>Review the outputs</h3><p>Examine bounding boxes, confidence scores, anomaly heatmaps and the batch summary.</p></div></article>
-            <article class="step"><span class="step-marker">4</span><div><h3>Validate the decision</h3><p>Compare predictions with labelled ground truth and calibrate thresholds before acting on results.</p></div></article>
-          </div>
-        </div>
-        <div class="flow-panel">
-          <h3>System concept</h3>
-          <div class="flow-row"><span class="flow-node">Product<br>surface</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Camera or<br>image</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">AI<br>models</span></div>
-          <div class="flow-row"><span class="flow-node">Detection and<br>anomaly results</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Decision<br>logic</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Review or future<br>rejection</span></div>
-          <p class="flow-caption">The current app demonstrates image-based inspection. Physical automatic rejection should be described as planned integration unless it has been built and tested.</p>
-        </div>
-      </div>
-    </section>
+    <section class="section" id="hardware" aria-labelledby="hardware-title"><div class="shell"><div class="section-heading"><span class="eyebrow">03 · Hardware modules</span><h2 id="hardware-title">Measuring and moving the product.</h2><p>The hardware work complements AI inspection by exploring object-height measurement and a conveyor-based sorting setup.</p></div><div class="cards">
+      <article class="card"><span class="card-number">A</span><h3>Arduino Uno + HC-SR04</h3><p>The HC-SR04 sends an ultrasonic pulse and measures the time for its echo to return. The Arduino converts this echo time into distance. Keep the sensor steady and perpendicular to the reference surface for more consistent readings.</p></article>
+      <article class="card"><span class="card-number">B</span><h3>Height calculation</h3><p>With the sensor mounted above the object, calculate: <strong>Object height = reference distance − measured distance.</strong> The current setup uses an approximately 15 cm sensor-to-ground reference; remeasure the real distance before testing.</p></article>
+      <article class="card"><span class="card-number">C</span><h3>Conveyor and rejection concept</h3><p>A DC geared motor can move products through the inspection point. A motor driver and a suitable actuator would be needed for motion and rejection. These parts require electrical, timing and mechanical validation before automatic operation.</p></article>
+    </div><div class="flow-panel" style="margin-top:18px"><h3>Height measurement — practical procedure</h3><div class="steps">
+      <article class="step"><span class="step-marker">1</span><div><h3>Measure the reference</h3><p>With no object under the sensor, measure the sensor-to-platform distance and use it as the reference value.</p></div></article>
+      <article class="step"><span class="step-marker">2</span><div><h3>Read the object distance</h3><p>Place the object under the sensor and read the distance to its upper surface. Avoid angled, moving or very soft targets during initial testing.</p></div></article>
+      <article class="step"><span class="step-marker">3</span><div><h3>Calculate and compare</h3><p>Subtract the measured distance from the reference distance. Compare the result with a ruler or known object to check error and repeatability.</p></div></article>
+    </div></div></div></section>
 
-    <section class="section section-soft" aria-labelledby="details-title">
-      <div class="shell details">
-        <div class="section-heading">
-          <span class="eyebrow">04 · At a glance</span>
-          <h2 id="details-title">Project details.</h2>
-          <p>A concise summary of the project scope and academic context.</p>
-        </div>
-        <table class="detail-table">
-          <tbody>
-            <tr><th scope="row">Project title</th><td>IIoT and Image Processing-Based Surface Defect Detection and Automatic Product Rejection System</td></tr>
-            <tr><th scope="row">Application area</th><td>Steel surface inspection and manufacturing quality control</td></tr>
-            <tr><th scope="row">Models</th><td>YOLO for known defect classes; PatchCore for anomaly detection</td></tr>
-            <tr><th scope="row">Defect classes</th><td>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</td></tr>
-            <tr><th scope="row">Image input</th><td>Phone camera capture and batch upload (up to six images)</td></tr>
-            <tr><th scope="row">Web application</th><td>Streamlit testing application</td></tr>
-            <tr><th scope="row">Hardware direction</th><td>Future controller and connected-device integration for a physical inspection and rejection workflow</td></tr>
-            <tr><th scope="row">Institution</th><td>Chandigarh College of Engineering and Technology (CCET), Degree Wing, Sector 26, Chandigarh</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    <section class="section section-soft" id="workflow" aria-labelledby="workflow-title"><div class="shell workflow"><div><div class="section-heading"><span class="eyebrow">04 · System workflow</span><h2 id="workflow-title">From input to inspection decision.</h2></div><div class="steps">
+      <article class="step"><span class="step-marker">1</span><div><h3>Height Measurement  </h3><p>The Arduino/HC-SR04 module estimates object height from the reference distance and measured distance.</p></div></article>
+      <article class="step"><span class="step-marker">2</span><div><h3>Validate Height Result</h3><p>Compare the measured height with predefined acceptable height limits to determine whether the product meets specifications.</p></div></article>
+      <article class="step"><span class="step-marker">3</span><div><h3>Run Image Processing Model</h3><p>Capture or upload the product image and process it using the YOLO and PatchCore models to detect surface defects.</p></div></article>
+      <article class="step"><span class="step-marker">4</span><div><h3>Review and validate</h3><p>Review the predicted defect class and anomaly results to determine whether the product surface is acceptable.</p></div></article>
+      <article class="step"><span class="step-marker">5</span><div><h3>Making Decision</h3><p>Combine the height measurement and image-processing results to classify the product as PASS or REJECT.</p></div></article>
+      <article class="step"><span class="step-marker">6</span><div><h3>Product Rejection</h3><p>If either the height or surface quality fails the acceptance criteria, reject the product using the rejection mechanism; otherwise, allow it to pass.</p></div></article>
+    </div></div></span><div class="flow-panel"><h3>System architecture</h3><div class="flow-row"><span class="flow-node">Product</span><span class="flow-arrow">→</span><span class="flow-node">Height Measurement</span><span class="flow-arrow">→</span><span class="flow-node">Pass / Reject</span></div><div class="flow-row"><span class="flow-node">Image Capture</span><span class="flow-arrow">→</span><span class="flow-node">Image Processing</span><span class="flow-arrow">→</span><span class="flow-node">Pass / Reject</span></div></div></section>
 
-    <section class="section" id="team" aria-labelledby="team-title">
-      <div class="shell">
-        <div class="section-heading">
-          <span class="eyebrow">05 · People &amp; academics</span>
-          <h2 id="team-title">The people behind the project.</h2>
-          <p>Project and academic details can be added here when the approved information is ready.</p>
-        </div>
-        <div class="team-grid">
-          <article class="team-card"><span>Project team</span><h3>Umesh Sharma [LCO23177] </h3><h3>Satyam Pandey [MCO23162] </h3><h3>Divyansh Dhir [LCO23167] </h3></article>
-          <article class="team-card"><span>Supervision</span><h3>Dr. Mukesh kumar </h3></article>
-          <article class="team-card"><span>Academic context</span><h3>Minor Project </h3><p>Mechanical - 7th sem </p></article>
-        </div>
-        <p class="placeholder-note">Remember to replace the bracketed placeholders before publishing.</p>
-      </div>
-    </section>
+    <section class="section" id="results" aria-labelledby="results-title"><div class="shell"><div class="section-heading"><span class="eyebrow">05 · Model evaluation</span><h2 id="results-title">Reported YOLO results.</h2></div><div class="cards">
+      <article class="card"><span class="card-number">01</span><h3>Precision</h3><p style="font-size:28px;color:var(--green);font-weight:800;margin:8px 0">60.33%</p><p>Of the model's predicted defect detections, the proportion that were correct under the evaluation setup.</p></article>
+      <article class="card"><span class="card-number">02</span><h3>Recall</h3><p style="font-size:28px;color:var(--green);font-weight:800;margin:8px 0">70.84%</p><p>Proportion of labelled defect instances detected under the evaluation setup.</p></article>
+      <article class="card"><span class="card-number">03</span><h3>mAP@50</h3><p style="font-size:28px;color:var(--green);font-weight:800;margin:8px 0">70.73%</p><p>Mean average precision using an intersection-over-union threshold of 0.50.</p></article>
+      <article class="card"><span class="card-number">04</span><h3>mAP@50–90</h3><p style="font-size:28px;color:var(--green);font-weight:800;margin:8px 0">37.61%</p><p>Mean average precision averaged across IoU thresholds from 0.50 to 0.90; this is a stricter localization metric.</p></article>
+      <article class="card"><span class="card-number">05</span><h3>What the metrics mean</h3><p>Precision and recall describe different error types. mAP scores summarize detection performance. None of these metrics alone guarantees reliable performance on every real-world product.</p></article>
+      <article class="card"><span class="card-number">06</span><h3>Next validation steps</h3><p>Review class-wise confusion, false positives and missed defects; test on unseen images; standardize lighting and camera distance; and document results for each defect class.</p></article>
+    </div></div></section>
 
-    <section class="section" aria-label="Try the prototype">
-      <div class="shell">
-        <div class="cta">
-          <div>
-            <span class="eyebrow">06 · See it in action</span>
-            <h2>Take a closer look at the prototype.</h2>
-            <p>Open the separate testing application to capture a photo or review a batch of images.</p>
-            <div class="local-test">
-              <p>Have a test image saved on your laptop? Select it to preview it here.</p>
-              <button class="button button-light" id="choose-image" type="button">Choose image from laptop</button>
-              <input id="local-image" type="file" accept="image/*" hidden>
-              <div class="local-preview" id="local-preview" aria-live="polite">
-                <img id="preview-image" alt="Preview of the selected local image">
-                <span id="selected-filename"></span>
-              </div>
-              <p>This local preview does not upload the image or run model analysis. Use the testing app to submit an image for inspection.</p>
-            </div>
-          </div>
-          <div class="cta-actions">
-            <a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing <span aria-hidden="true">↗</span></a>
-            <a class="button button-light" href="height-testing.html">Open height tester <span aria-hidden="true">↗</span></a>
-          </div>
-          <p class="flow-caption" style="margin-top:16px;color:#c8d5ca;">The Windows height tester is a downloadable local launcher. Download it, set up the HeightInspection app on your PC, then run the .bat file manually. Browsers cannot launch local programs automatically.</p>
-        </div>
-      </div>
-    </section>
+    <section class="section section-soft" id="details" aria-labelledby="details-title"><div class="shell details"><div class="section-heading"><span class="eyebrow">06 · Technical summary</span><h2 id="details-title">Project details.</h2></div><table class="detail-table"><tbody>
+      <tr><th scope="row">Project title</th><td>IIoT and Image Processing-Based Surface Defect Detection System</td></tr>
+      <tr><th scope="row">Application area</th><td>Steel surface inspection, manufacturing quality control and automation concepts</td></tr>
+      <tr><th scope="row">Image Processing Models</th><td>YOLO for known defect detection; PatchCore for anomaly detection</td></tr>
+      <tr><th scope="row">Target classes</th><td>Crazing, inclusion, patches, pitted surface, rolled-in scale and scratches</td></tr>
+      <tr><th scope="row">AI metrics</th><td>Precision 60.33%; recall 70.84%; mAP@50 70.73%; mAP@50–95 37.61% (reported results)</td></tr>
+      <tr><th scope="row">Web application</th><td>Streamlit ; GitHub ; Huggingface </td></tr>
+      <tr><th scope="row">Hardware</th><td>Arduino Uno, HC-SR04 ultrasonic sensor, jumper wires and USB cable; conveyor</td></tr>
+      <tr><th scope="row">Height reference</th><td>Approximately 15 cm in the current setup; verify with a physical measurement before each test</td></tr>
+      <tr><th scope="row">Programming / tools</th><td>Python, Arduino C, Streamlit and computer-vision/model libraries</td></tr>
+      <tr><th scope="row">Project status</th><td>Complete system covering height measurement, Image Processing based defect detection, PASS/REJECT decisions, IIoT monitoring completed .</td></tr>
+    </tbody></table></div></section>
 
-    <section class="section institution" id="institution" aria-labelledby="institution-title">
-      <div class="shell institution-inner">
-        <div><span class="eyebrow">07 · Institution</span><h2 id="institution-title">Chandigarh College of Engineering and Technology</h2><p>Government institute under Chandigarh UT Administration, affiliated to Panjab University, Chandigarh.</p></div>
-        <a class="button" href="https://www.ccet.ac.in/" target="_blank" rel="noopener noreferrer">Visit CCET website <span aria-hidden="true">↗</span></a>
-      </div>
-    </section>
+    <section class="section" id="resources" aria-labelledby="resources-title"><div class="shell"><div class="section-heading"><span class="eyebrow">07 · Demonstrations and links</span><h2 id="resources-title">Open the project resources.</h2></div><div class="cards">
+      <article class="card"><span class="card-number">LIVE</span><h3>Image Processing App</h3><p>Open the Streamlit application to demonstrate image-based defect detection and review available prediction outputs.</p><p style="margin-top:16px"><a class="button" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Launch testing app ↗</a></p></article>
+      <article class="card"><span class="card-number">HARDWARE</span><h3>Height tester</h3><p>Open the height-testing page if the accompanying file is published in the same GitHub Pages repository.</p><p style="margin-top:16px"><a class="button" href="height-testing.html">Open height tester ↗</a></p></article>
+      <article class="card"><span class="card-number">WEB</span><h3>Project website repository</h3><p>View the GitHub repository containing this project website and its version history.</p><p style="margin-top:16px"><a class="button" href="https://github.com/SatyamPandey17-17/surface-defect-project-website" target="_blank" rel="noopener noreferrer">Open GitHub repository ↗</a></p></article>
+    </div></section>
+
+    <section class="section section-soft" id="team" aria-labelledby="team-title"><div class="shell"><div class="section-heading"><span class="eyebrow">08 · People and academics</span><h2 id="team-title">The project team.</h2></div><div class="team-grid">
+      <article class="team-card"><span>Project team</span><h3>Satyam Pandey</h3><p>Roll No. MCO23162</p><h3>Divyansh Dhir</h3><p>Roll No. LCO23167</p><h3>Umesh Sharma </h3><p>Roll No. LCO23177</p></article>
+      <article class="team-card"><span>Project guide</span><h3>Dr. Mukesh Kumar</h3><p>Project supervision</p></article>
+      <article class="team-card"><span>Academic context</span><h3>Minor Project</h3><p>Mechanical Engineering · 7th Semester</p></article>
+    </div></div></section>
+
+    <section class="section" aria-label="Try the prototype"><div class="shell"><div class="cta"><div><span class="eyebrow">09 · Live demonstration</span><h2>Take a closer look at the prototype.</h2><p>Open the deployed Image Processing app to test images. This website's local image preview is only for display and does not send an image to the model.</p><div class="local-test"><button class="button button-light" id="choose-image" type="button">Preview Image</button><input id="local-image" type="file" accept="image/*" hidden><div class="local-preview" id="local-preview" aria-live="polite"><img id="preview-image" alt="Preview of the selected local image"><span id="selected-filename"></span></div></div></div><div class="cta-actions"><a class="button button-lime" href="https://ccet-626777.streamlit.app/" target="_blank" rel="noopener noreferrer">Open surface testing ↗</a><a class="button button-light" href="height-testing.html">Open height tester ↗</a></div></div></div></section>
+
+    <section class="section institution" id="institution" aria-labelledby="institution-title"><div class="shell institution-inner"><div><span class="eyebrow">10 · Institution</span><h2 id="institution-title">Chandigarh College of Engineering and Technology</h2><p>CCET Degree Wing · Sector 26, Chandigarh.</p></div><a class="button" href="https://www.ccet.ac.in/" target="_blank" rel="noopener noreferrer">Visit CCET website ↗</a></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="shell footer-inner">
-      <p><strong>Surface Inspection Lab</strong> · Academic project showcase, CCET Degree Wing</p>
-      <p>© 2026 Satyam Pandey. All rights reserved.</p>
-      <a href="#home">Back to top ↑</a>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="shell footer-inner"><p><strong>Minor Project WebPage</strong></p><p>© 2026 · All rights reserved to the project team.</p><a href="#home">Back to top ↑</a></div></footer>
   <script>
     const imageInput = document.getElementById('local-image');
     const chooseImageButton = document.getElementById('choose-image');
@@ -397,18 +314,18 @@
     const previewImage = document.getElementById('preview-image');
     const selectedFilename = document.getElementById('selected-filename');
     let previewUrl;
-
-    chooseImageButton.addEventListener('click', () => imageInput.click());
-    imageInput.addEventListener('change', () => {
-      const file = imageInput.files[0];
-      if (!file || !file.type.startsWith('image/')) return;
-
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      previewUrl = URL.createObjectURL(file);
-      previewImage.src = previewUrl;
-      selectedFilename.textContent = file.name;
-      preview.style.display = 'block';
-    });
+    if (chooseImageButton && imageInput) {
+      chooseImageButton.addEventListener('click', () => imageInput.click());
+      imageInput.addEventListener('change', () => {
+        const file = imageInput.files[0];
+        if (!file || !file.type.startsWith('image/')) return;
+        if (previewUrl) URL.revokeObjectURL(previewUrl);
+        previewUrl = URL.createObjectURL(file);
+        previewImage.src = previewUrl;
+        selectedFilename.textContent = file.name;
+        preview.style.display = 'block';
+      });
+    }
   </script>
 </body>
 </html>
